@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+
 
 export default function LoveStory() {
   const [meetingTime, setMeetingTime] = useState({
@@ -20,8 +21,9 @@ export default function LoveStory() {
       const meetingDate = new Date(2025, 11, 10);
       const confessionDate = new Date(2026, 1, 14);
 
-      const calcTimeRemaining = (targetDate) => {
-        const diff = targetDate - now;
+      const calcTimeRemaining = (targetDate: Date) => {
+  const diff = targetDate.getTime() - now.getTime();
+
         if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
         return {
           days: Math.floor(diff / (1000 * 60 * 60 * 24)),
